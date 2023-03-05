@@ -4,16 +4,6 @@
     font-family: sans-serif;
 }
 
-p {
-    font-size: 50px;
-}
-
-button {
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 20px;
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -24,12 +14,32 @@ body {
     width: 100vw;
 }
 
+p { 
+    font-size: 50px;
+}
+
+.huytainer {
+    display: flex;
+    gap: 16px;
+    align-content: center;
+    align-items: center;
+}
+
+button {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 20px;
+    flex: 1;
+}
+
+.title {
+    flex: 3;
+}
+
 .container {
-    width: 40vw;
-    height: 60vh;
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    width: 960px;
+    height: 540px;  
+    display: grid;    
 }
 
 .container div {
