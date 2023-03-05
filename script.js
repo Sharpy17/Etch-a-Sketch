@@ -12,16 +12,20 @@ button.addEventListener('click', () => {
     updateGrid();
 });
 
-function createGrid(input) {
+function createContainer(input) {
     const container = document.createElement('p');
     container.classList.add('container');
     container.style['grid-template-columns'] = `repeat(${input}, 1fr)`;
     container.style['grid-template-rows'] = `repeat(${input}, 1fr)`;
     body.appendChild(container);
     window.cont = container;
-        for (let row = 0; row < input; row++) {   for (let column = 0; column < input; column++) {
+};
+
+function createGrid(input) {
+    for (let row = 0; row < input; row++){          
+        for (let column = 0; column < input; column++) {
             const square = document.createElement ('div');
-            container.appendChild(square);
+            cont.appendChild(square);
             const squar = document.querySelectorAll('div')
             window.squareList = squar;
             }
@@ -29,29 +33,20 @@ function createGrid(input) {
                     item.addEventListener('mouseover', () =>
                     item.style.backgroundColor = `${color}`);
                 });
-            
-        }
+                
+    }
 };
 
+createContainer(16);
 createGrid(16);
 
 function updateGrid() {
     cont.remove();
+    createContainer(globalInput);
     createGrid(globalInput);
 }
 
-//const square = document.querySelectorAll('div');
-//const squareArr = Array.from(square);
 
-//function changeColor(i) {
-//    i.style.backgroundColor = 'black';
-//}   
-
-//for (let i = 0; i < squareArr.length; i++) {
-//    squareArr[i].addEventListener('mouseover', changeColor);
-//}
-
-console.log(color);
 
 
 
