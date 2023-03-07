@@ -1,6 +1,12 @@
 const body = document.querySelector('.huy');
 const button = document.querySelector('.btn');
-let color = document.getElementById('colorselect').value;
+const color = document.getElementById('colorselect');
+let gridColor = document.getElementById('colorselect').value;
+
+color.addEventListener('change', () => {
+    let colour = document.getElementById('colorselect').value;
+    gridColor = colour;
+})
 
 button.addEventListener('click', () => {
     let userInput = prompt('Number of squares', 16);
@@ -19,6 +25,14 @@ function createContainer(input) {
     container.style['grid-template-rows'] = `repeat(${input}, 1fr)`;
     body.appendChild(container);
     window.cont = container;
+    const footer = document.createElement('span');
+    footer.classList.add('footer');
+    body.appendChild(footer);
+    const footertext = document.createElement('span');
+    footertext.textContent = 'Copyright © Sharpy17';
+    footertext.classList.add('footer-text');
+    footer.appendChild(footertext);
+    window.foot = footer;
 };
 
 function createGrid(input) {
@@ -31,9 +45,8 @@ function createGrid(input) {
             }
                 squareList.forEach((item) => {
                     item.addEventListener('mouseover', () =>
-                    item.style.backgroundColor = `${color}`);
+                    item.style.backgroundColor = `${gridColor}`);
                 });
-                
     }
 };
 
@@ -42,6 +55,7 @@ createGrid(16);
 
 function updateGrid() {
     cont.remove();
+    foot.remove();
     createContainer(globalInput);
     createGrid(globalInput);
 }
